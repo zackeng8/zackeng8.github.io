@@ -1,93 +1,266 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordan Reyes — Spatial &amp; Data Portfolio</title>
+<meta name="description" content="Portfolio of maps, dashboards, and data stories — Tableau, ArcGIS StoryMaps, ArcGIS Dashboards, Shiny, and code.">
 
-    <title>My Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            line-height: 1.6;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            margin-bottom: 10px;
-        }
-
-        nav {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        nav a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #0366d6;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            color: #777;
-        }
-    </style>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>My Website</h1>
-        <p>Welcome to my GitHub Pages website!</p>
-    </header>
+<!-- ============================================================
+  HEADER / NAV
+============================================================= -->
+<header class="site-header">
+  <a class="brand" href="#top">Jordan Reyes</a>
+  <nav class="site-nav">
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<main>
 
-    <main>
+  <!-- ============================================================
+    HERO
+  ============================================================= -->
+  <section class="hero" id="top">
+    <p class="eyebrow-mono">Data &amp; GIS Analyst</p>
+    <h1 class="hero-title">I turn raw data into places you can read.</h1>
+    <p class="hero-sub">Maps, dashboards, and interactive stories built in Tableau, ArcGIS, R, and code — collected below, launchable in one click.</p>
+    <a class="hero-link" href="#projects">View the work <span aria-hidden="true">→</span></a>
+  </section>
 
-        <section id="home">
-            <h2>Home</h2>
-            <p>
-                This is my website hosted using GitHub Pages.
-            </p>
-        </section>
+  <!-- ============================================================
+    PROJECTS
+  ============================================================= -->
+  <section class="projects" id="projects">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <div class="filter-row" id="filterRow" role="tablist" aria-label="Filter projects by platform">
+        <!-- filter buttons generated from PROJECTS data -->
+      </div>
+    </div>
 
-        <section id="about">
-            <h2>About</h2>
-            <p>
-                Add information about yourself, your project, or your organization here.
-            </p>
-        </section>
+    <div class="project-list" id="projectGrid">
+      <!-- rows generated from the PROJECTS array below -->
+    </div>
+  </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>
-                Email: example@email.com
-            </p>
-        </section>
+  <!-- ============================================================
+    ABOUT
+  ============================================================= -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div>
+        <h2>About</h2>
+        <p>I'm a data &amp; GIS analyst who likes it best when a spreadsheet turns into something you can walk through. This site is a running index of dashboards, story maps, and small tools, each one launchable without leaving the page.</p>
+      </div>
+      <dl class="skill-list">
+        <div><dt>Mapping</dt><dd>ArcGIS Pro, StoryMaps, Dashboards</dd></div>
+        <div><dt>Analysis</dt><dd>R, Python, SQL</dd></div>
+        <div><dt>Visualization</dt><dd>Tableau, Shiny, D3</dd></div>
+        <div><dt>Web</dt><dd>HTML/CSS, GitHub Pages</dd></div>
+      </dl>
+    </div>
+  </section>
 
-    </main>
+</main>
 
-    <footer>
-        <p>&copy; 2026 My Website</p>
-    </footer>
+<!-- ============================================================
+  FOOTER / CONTACT
+============================================================= -->
+<footer class="site-footer" id="contact">
+  <div class="footer-grid">
+    <h2>Get in touch</h2>
+    <div class="footer-links">
+      <a href="mailto:jordan.reyes@example.com">jordan.reyes@example.com</a>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <p class="footer-fine">© <span id="year"></span> Jordan Reyes</p>
+</footer>
+
+<!-- ============================================================
+  EMBED MODAL (for Tableau / StoryMaps / Dashboards / Shiny)
+============================================================= -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-bar">
+      <p id="modalTitle">Project</p>
+      <div class="modal-bar-actions">
+        <a id="modalOpenNew" href="#" target="_blank" rel="noopener" class="modal-link">Open in new tab ↗</a>
+        <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
+      </div>
+    </div>
+    <iframe id="modalFrame" title="Embedded project" loading="lazy" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+/* ==================================================================
+   PROJECTS — edit this array to add / remove / reorder your work.
+   Every project needs:
+     title       – project name
+     platform    – one of: "tableau" | "storymap" | "dashboard" | "shiny" | "github"
+     description – 1–2 sentence summary
+     link        – URL to the live project or repo
+     embed       – true = opens inside an on-page modal iframe
+                   false = opens the link in a new tab (used for github)
+   Optional:
+     tag         – short label shown next to the row (defaults to the
+                   platform name, see PLATFORM_META below)
+================================================================== */
+const PROJECTS = [
+  {
+    title: "Neighborhood Housing Cost Explorer",
+    platform: "tableau",
+    description: "Interactive Tableau dashboard tracking median rent and home price trends by neighborhood over the last decade.",
+    link: "https://public.tableau.com/views/YOUR_VIZ_NAME/YourDashboard",
+    embed: true
+  },
+  {
+    title: "Wildfire Risk Story Map",
+    platform: "storymap",
+    description: "An ArcGIS StoryMap walking through wildfire risk factors across the Pacific Northwest, combining narrative and interactive maps.",
+    link: "https://storymaps.arcgis.com/stories/YOUR_STORY_ID",
+    embed: true
+  },
+  {
+    title: "Transit Ridership Live Dashboard",
+    platform: "dashboard",
+    description: "Real-time ArcGIS Dashboard monitoring daily ridership, on-time performance, and route load across the regional transit system.",
+    link: "https://YOURORG.maps.arcgis.com/apps/dashboards/YOUR_DASHBOARD_ID",
+    embed: true
+  },
+  {
+    title: "Census Migration Flows Tool",
+    platform: "shiny",
+    description: "A Shiny app for exploring county-to-county migration flows from Census data, with adjustable year and region filters.",
+    link: "https://yourusername.shinyapps.io/migration-flows/",
+    embed: true
+  },
+  {
+    title: "Open Data Cleaning Pipeline",
+    platform: "github",
+    description: "An R pipeline that automates cleaning and geocoding of messy open-data CSVs into analysis-ready spatial files.",
+    link: "https://github.com/yourusername/open-data-pipeline",
+    embed: false
+  }
+];
+
+/* Platform metadata: display name + accent color (used for a small dot only) */
+const PLATFORM_META = {
+  tableau:   { name: "Tableau Public",   className: "dot-tableau"   },
+  storymap:  { name: "ArcGIS StoryMap",  className: "dot-storymap"  },
+  dashboard: { name: "ArcGIS Dashboard", className: "dot-dashboard" },
+  shiny:     { name: "Shiny App",        className: "dot-shiny"     },
+  github:    { name: "GitHub Repo",      className: "dot-github"    }
+};
+
+/* ---------- render filter buttons ---------- */
+const filterRow = document.getElementById("filterRow");
+const platformsPresent = ["all", ...new Set(PROJECTS.map(p => p.platform))];
+
+platformsPresent.forEach((key, i) => {
+  const btn = document.createElement("button");
+  btn.className = "filter-btn" + (i === 0 ? " filter-active" : "");
+  btn.textContent = key === "all" ? "All" : PLATFORM_META[key].name;
+  btn.dataset.filter = key;
+  btn.setAttribute("role", "tab");
+  btn.setAttribute("aria-selected", i === 0 ? "true" : "false");
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(c => {
+      c.classList.remove("filter-active");
+      c.setAttribute("aria-selected", "false");
+    });
+    btn.classList.add("filter-active");
+    btn.setAttribute("aria-selected", "true");
+    renderGrid(key);
+  });
+  filterRow.appendChild(btn);
+});
+
+/* ---------- render project rows ---------- */
+const grid = document.getElementById("projectGrid");
+
+function renderGrid(filter) {
+  grid.innerHTML = "";
+  const items = filter === "all" ? PROJECTS : PROJECTS.filter(p => p.platform === filter);
+
+  items.forEach((p, i) => {
+    const meta = PLATFORM_META[p.platform];
+    const row = document.createElement("article");
+    row.className = "project-row";
+    row.tabIndex = 0;
+    row.setAttribute("role", "button");
+
+    row.innerHTML = `
+      <span class="row-index">${String(i + 1).padStart(2, "0")}</span>
+      <span class="row-main">
+        <span class="row-title">${p.title}</span>
+        <span class="row-desc">${p.description}</span>
+      </span>
+      <span class="row-platform"><span class="dot ${meta.className}"></span>${meta.name}</span>
+      <span class="row-arrow" aria-hidden="true">${p.embed ? "↗" : "→"}</span>
+    `;
+
+    const activate = () => {
+      if (p.embed) {
+        openModal(p.title, p.link);
+      } else {
+        window.open(p.link, "_blank", "noopener");
+      }
+    };
+    row.addEventListener("click", activate);
+    row.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activate(); }
+    });
+
+    grid.appendChild(row);
+  });
+}
+
+renderGrid("all");
+
+/* ---------- modal logic ---------- */
+const modal = document.getElementById("modal");
+const modalFrame = document.getElementById("modalFrame");
+const modalTitle = document.getElementById("modalTitle");
+const modalOpenNew = document.getElementById("modalOpenNew");
+
+function openModal(title, url) {
+  modalTitle.textContent = title;
+  modalFrame.src = url;
+  modalOpenNew.href = url;
+  modal.classList.add("modal-open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  document.getElementById("modalClose").focus();
+}
+
+function closeModal() {
+  modal.classList.remove("modal-open");
+  modal.setAttribute("aria-hidden", "true");
+  modalFrame.src = "";
+  document.body.style.overflow = "";
+}
+
+document.getElementById("modalClose").addEventListener("click", closeModal);
+modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+/* ---------- footer year ---------- */
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
